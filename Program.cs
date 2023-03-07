@@ -2,37 +2,33 @@
 {
     static void Main(string[] args)
     {
-        string[] month;
-        month = new string[13];
-        month[1] = "Janvier";
-        month[2] = "Février";
-        month[3] = "Mars";
-        month[4] = "Avril";
-        month[5] = "Mai";
-        month[6] = "Juin";
-        month[7] = "Juillet";
-        month[8] = "Août";
-        month[9] = "Septembre";
-        month[10] = "Octobre";
-        month[11] = "Novembre";
-        month[12] = "Décembre";
+        string[] months;
+        months = new string[] { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" };
         Console.WriteLine("Entrez votre salaire mensuel : ");
         int salary = int.Parse(Console.ReadLine());
-        foreach (string mois in month)
+        foreach (string month in months)
         {
             double salaryMensuel = salary;
-            switch (mois)
+            if (month == months[11])
             {
-                case "Décembre":
-                    salaryMensuel *= 1.1;
-                    break;
-                case "Août":
-                    salaryMensuel = 0;
-                    break;
-                default:
-                    break;
+                try
+                {
+                    Console.WriteLine("Entrez le pourcentage de la prime de noël : ");
+                    double pourcentagePrime = double.Parse(Console.ReadLine());
+                    salaryMensuel *= ((pourcentagePrime / 100) + 1);
+                    Console.WriteLine("Salaire pour Décembre : " + salaryMensuel);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Il faut rentrer un nombre ici !!");
+                }
+            } else if (month == months[7])
+            {
+                salaryMensuel = 0;
+            } else
+            {
+                Console.WriteLine($"Salaire pour " + month + " : " + salaryMensuel);
             }
-            Console.WriteLine($"Salaire pour " + mois + " : " + salaryMensuel);
         }
     }
 
