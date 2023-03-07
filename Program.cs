@@ -1,6 +1,50 @@
-﻿class Program
+﻿class User
+{
+    public User(int id, string lastName, string firstName, int old, int salary, int tax)
+    {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.old = old;
+        this.salary = salary;
+        this.tax = tax;
+    }
+
+    public int id { get; set; }
+    public string lastName { get; set; }
+    public string firstName { get; set; }
+    public int old { get; set; }
+    public int salary { get; set; }
+    public int tax { get; set; }
+
+}
+
+
+class Program
 {
     static void Main(string[] args)
+    {
+        User Remi = new User(1, "Perche", "Rémi", 19, 756, 10);
+        User Romain = new User(2, "Lutigneaux", "Romain", 29, 3500, 30);
+        Console.WriteLine("\nId : " + Remi.id + "\nNom de famille : " + Remi.lastName + "\nPrénom : " + Remi.firstName + "\nAge : " + Remi.old + "\nSalaire : " + Remi.salary + "\nTaxe : " + Remi.salary);
+        Console.WriteLine("\nId : " + Romain.id + "\nNom de famille : " + Romain.lastName + "\nPrénom : " + Romain.firstName + "\nAge : " + Romain.old + "\nSalaire : " + Romain.salary + "\nTaxe : " + Romain.salary);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    static void SalaryMonth()
     {
         string[] months;
         months = new string[] { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" };
@@ -22,10 +66,12 @@
                 {
                     Console.WriteLine("Il faut rentrer un nombre ici !!");
                 }
-            } else if (month == months[7])
+            }
+            else if (month == months[7])
             {
                 salaryMensuel = 0;
-            } else
+            }
+            else
             {
                 Console.WriteLine($"Salaire pour " + month + " : " + salaryMensuel);
             }
@@ -33,22 +79,12 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
     static int CalculateSalaryNet(int salary, int tax)
     {
         return (salary * (1 - tax / 100)) / 12;
     }
 
-    static void Salaire()
+    static void Salary()
     {
         Console.WriteLine("Entrez votre salaire brut : ");
         if (int.TryParse(Console.ReadLine(), out int salary))
@@ -82,5 +118,5 @@
         {
             Console.WriteLine("Entrez le salaire en nombre !!!");
         }
-    }
+    }*/
 }
